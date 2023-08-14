@@ -1,7 +1,10 @@
-public class star_wars {
+package ua.com.alevel;
+import ua.com.alevel.test.Message;
+
+public class Hello {
 
     public static void main(String[] args) {
-        jedi m = new jedi ();
+        Message m = new Message();
         byte b = Byte.MAX_VALUE;
         byte b1 = Byte.MIN_VALUE;
         short s = Short.MAX_VALUE;

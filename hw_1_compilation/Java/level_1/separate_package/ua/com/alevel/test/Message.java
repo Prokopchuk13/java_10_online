@@ -1,6 +1,6 @@
-package may.the_force.by_with_you;
+package ua.com.alevel.test;
 
-public class Force {
+public class Message {
     public void print(String s) {
 
         System.out.println(s);

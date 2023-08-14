@@ -1,11 +1,11 @@
-package may.the_force;
+package ua.com.alevel;
+import ua.com.alevel.test.Message;
+import ua.com.alevel.depends.Depends;
 
-import may.the_force.by_with_you.Force;
-
-public class Dark_side {
+public class Hello {
 
     public static void main(String[] args) {
-        Force m = new Force();
+        Message m = new Message();
         byte b = Byte.MAX_VALUE;
         byte b1 = Byte.MIN_VALUE;
         short s = Short.MAX_VALUE;
@@ -23,5 +23,9 @@ public class Dark_side {
         m.print(String.valueOf(i1));
         m.print(String.valueOf(l));
         m.print(String.valueOf(l1));
+
+        System.out.println();
+        Depends d = new Depends();
+        d.console("Hello World");
     }
 }
