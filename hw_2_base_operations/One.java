@@ -4,18 +4,26 @@ import java.io.InputStreamReader;
 
 public class One {
     public static void main(String[] args) {
-
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("Please Enter");
+        System.out.print("Enter the value: ");
+
         try {
-            int num = 0;
-            try {
-                num = Integer.parseInt(bufferedReader.readLine());
-            } catch (IOException e) {
-                throw new RuntimeException(e);
+            String theline = bufferedReader.readLine();
+            char[] charArray = theline.toCharArray();
+            byte sum = 0;
+
+            for (int i = 0; i < charArray.length; i++) {
+                byte b = (byte) charArray[i];
+
+                if (b >= 48 && b <= 57) {
+                    int digit = Character.getNumericValue(charArray[i]);
+                    sum += digit;
+                }
             }
-            System.out.println("Finish");
+            System.out.println("Sum: " + sum);
+        }
+        catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 }
-
