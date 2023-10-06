@@ -1,19 +1,24 @@
 package ua.com.alevel.controller;
+import ua.com.alevel.entitys.Music;
+import ua.com.alevel.service.music.MusicServiceImplementation;
 
-import javax.swing.*;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 
 public class MusicController {
+    private MusicServiceImplementation service;
+    public MusicController(MusicServiceImplementation musicServiceImplementation) {
+    service = musicServiceImplementation;
 
-    private MusicController musicController = new MusicController();
-
-    public void start() throws IOException {
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        String position = "";
-
-        }
+    }
+    public Music create (Music music){
+        return service.create(music);
+    }
+    public Music update (String id,Music music){
+        return service.update(id, music);
+    }
+    public Music delete (String id){
+        return service.delete(id);
+    }
+    public Music find (String id){
+        return service.find(id);
+    }
 }
-
-

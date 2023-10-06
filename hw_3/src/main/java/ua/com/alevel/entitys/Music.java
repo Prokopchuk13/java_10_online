@@ -1,7 +1,8 @@
 package ua.com.alevel.entitys;
 
-public class Music {
+public class Music extends BaseEntity {
 
+    public int length;
     private int age;
     private int time;
     private String name;

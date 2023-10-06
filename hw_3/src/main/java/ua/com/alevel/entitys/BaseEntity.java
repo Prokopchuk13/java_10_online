@@ -1,11 +1,10 @@
 package ua.com.alevel.entitys;
-import java.util.UUID;
 public class BaseEntity {
 
     private String id;
 
-    public BaseEntity(){
-        this.id = UUID.randomUUID().toString();
+    public void setId(String id){
+        this.id = id;
     }
     public String getId(){
         return id;
