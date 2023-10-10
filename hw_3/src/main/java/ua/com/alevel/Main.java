@@ -13,20 +13,20 @@ public class Main {
 
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         String position = "";
+        MusicController musicController = new MusicController(new MusicServiceImplementation(new MusicDb()));
 
         while ((position) != null) {
             menu();
             position = bufferedReader.readLine();
-            crud(position, bufferedReader);
+            crud(position, bufferedReader,musicController);
         }
     }
-    private static void crud(String option, BufferedReader bufferedReader) throws IOException {
-        String id = "";
-        MusicController musicController = new MusicController(new MusicServiceImplementation(new MusicDb()));
-        String author = "";
-        String name = "";
-        String age = "";
-        String time = "";
+    private static void crud(String option, BufferedReader bufferedReader, MusicController musicController) throws IOException {
+        String id = null;
+        String author = null;
+        String name = null;
+        String age = null;
+        String time = null;
 
         switch (option) {
 
@@ -34,33 +34,44 @@ public class Main {
 
                 Music music = new Music();
 
-                while (author == "" && author != "No"){
+                while (true) {
+                    if (author != null) {
+                        break;
+                    }
                     System.out.println("Do you want to create an author ?");
                     author = bufferedReader.readLine();
-                    System.out.println(author);
                 }
-                if (author != "No")
+                if (!author.equals("No"))
                     music.setAuthor(author);
 
-                while (name == "" && name != "No") {
+                while (true) {
+                    if (name != null) {
+                        break;
+                    }
                     System.out.println("Do you want to create a name ?");
                     name = bufferedReader.readLine();
                 }
-                if (name != "No")
+                if (!name.equals("No"))
                     music.setName(name);
 
-                while (age == "" && age != "No"){
+                    while (true) {
+                        if (age != null) {
+                            break;
+                        }
                     System.out.println("Do you want to add age ? ");
                     age = bufferedReader.readLine();
                 }
-                if (age != "No")
+                if (!age.equals("No"))
                     music.setAge(Integer.valueOf(age));
 
-                while (time == "" && time != "No") {
+                        while (true) {
+                            if (time != null) {
+                                break;
+                            }
                     System.out.println("Do you want to add time ?");
                     time = bufferedReader.readLine();
                 }
-                if (time != "No")
+                if (!time.equals("No"))
                     music.setTime(Integer.valueOf(time));
                 musicController.create(music);
                 break;
@@ -71,32 +82,44 @@ public class Main {
 
                 Music updateMusic = new Music();
 
-                while (author == "" && author != "No"){
+                while (true) {
+                    if (author != null) {
+                        break;
+                    }
                     System.out.println("Do you want to create an author ?");
                     author = bufferedReader.readLine();
                 }
-                if (author != "No")
+                if (!author.equals("No"))
                     updateMusic.setAuthor(author);
 
-                while (name == "" && name != "No") {
+                while (true) {
+                    if (name != null) {
+                        break;
+                    }
                     System.out.println("Do you want to create a name ?");
                     name = bufferedReader.readLine();
                 }
-                if (name != "No")
+                if (!name.equals("No"))
                     updateMusic.setName(name);
 
-                while (age == "" && age != "No"){
+                while (true) {
+                    if (age != null){
+                        break;
+                    }
                     System.out.println("Do you want to add age ? ");
                     age = bufferedReader.readLine();
                 }
-                if (age != "No")
+                if (!age.equals("No"))
                     updateMusic.setAge(Integer.valueOf(age));
 
-                while (time == "" && time != "No") {
+                while (true) {
+                    if (time != null) {
+                        break;
+                    }
                     System.out.println("Do you want to add time ?");
                     time = bufferedReader.readLine();
                 }
-                if (time != "No")
+                if (!time.equals("No"))
                     updateMusic.setTime(Integer.valueOf(time));
                 musicController.update(id,updateMusic);
                 break;
@@ -108,18 +131,9 @@ public class Main {
                 break;
 
             case ("4"):
-                System.out.println("Enter the name of the music");
+                System.out.println("Enter the id music album");
                 id = String.valueOf(bufferedReader.readLine());
-                Music music1 = musicController.find(id);
-                System.out.println(music1.getName());
-                System.out.println(music1.getTime());
-                System.out.println(music1.getAge());
-                System.out.println(music1.getAuthor());
-                break;
-
-            case ("5"):
-                System.out.println("Do you want to complete the program ?");
-                System.exit(0);
+                musicController.find(id);
                 break;
         }
     }
