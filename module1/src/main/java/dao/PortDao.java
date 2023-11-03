@@ -27,7 +27,7 @@ public class PortDao {
         PortEntity result = null;
 
         for (PortEntity port : portEntities) {
-            if ((port.getId()).equals(id)){
+            if (port!=null && (port.getId()).equals(id)){
                 result = port;
                 break;
             }
@@ -65,6 +65,7 @@ public class PortDao {
         PortEntity [] deleteId = new PortEntity[portEntities.length - 1];
         for (int i = 0; i <portEntities.length; i++) {
             if (portEntities[i].getId().equals(id)) {
+                result = portEntities[i];
                 portEntities[i] = null;
                 deleteIndex = i;
                 break;
@@ -76,7 +77,7 @@ public class PortDao {
             for(int r = deleteIndex; r < deleteId.length; r++){
                 deleteId[r] = portEntities[r + 1];
             }
-        return result;
+        return result ;
     }
 }
 

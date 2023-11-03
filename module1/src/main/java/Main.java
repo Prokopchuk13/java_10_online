@@ -37,18 +37,29 @@ public class Main {
                 PortEntity createdPort = portController.create(portDto);
 
                 createdPort.print();
+                break;
             case "2":
                 String portIdDto = PortReader.get();
                 PortEntity port = portController.get(portIdDto);
+                if (port == null){
+                    System.out.println("No port");
+                break;
+                }
+                port.print();
+                break;
             case "3":
                 String portIdDelite = PortReader.delite();
                 PortEntity delitePort = portController.delite(portIdDelite);
+                delitePort.print();
+                break;
             case "4":
                 PortEntity portIdUpdate = PortReader.update();
                 PortEntity updatePort = portController.update(portIdUpdate.getId(),portIdUpdate);
-
+                updatePort.print();
+                break;
                 default:
                 return;
+
         }
     }
 }
