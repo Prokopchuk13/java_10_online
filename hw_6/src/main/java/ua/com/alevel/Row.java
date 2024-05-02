@@ -1,52 +1,34 @@
 package ua.com.alevel;
-public class Row {
-    public String row;
-    public int rating;
-    public int count;
-    public int percentage;
 
-    public Row (String row, int rating, int count, int percentage) {
-        this.row = row;
-        this.rating = rating;
+class Row {
+    private String word;
+    private long count;
+    private long percentage;
+    private long rating;
+
+    public Row(String word, long count, long percentage) {
+        this.word = word;
         this.count = count;
         this.percentage = percentage;
     }
 
-    public String getRow() {
-        return row;
-    }
-    public void setRow (String row) {
-        this.row = row;
+    public String getWord() {
+        return word;
     }
 
-    public int getRating() {
-        return rating;
-    }
-    public void setRating(int rating) {
-        this.rating = rating;
-    }
-
-    public int getCount() {
+    public long getCount() {
         return count;
     }
-    public void setCount(int count) {
-        this.count = count;
-    }
 
-    public int getPercentage() {
+    public double getPercentage() {
         return percentage;
     }
-    public void setPercentage(int percentage) {
-        this.percentage = percentage;
+
+    public long getRating() {
+        return rating;
     }
 
-    @Override
-    public  String toString() {
-        return "Row{" +
-                "row='" + row + '\'' +
-                ", rating=" + rating +
-                ", count=" + count +
-                ", percentage=" + percentage +
-                '}';
+    public void setRating(long rating) {
+        this.rating = rating;
     }
 }
